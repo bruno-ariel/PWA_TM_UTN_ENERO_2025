@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "name": "pepe",
+      "email": "pepe@gmail.com",
+      "password": "pepe123",
+      "id": 1
+    },
+    {
+      "name": "pepe",
+      "email": "pepe@gmail.com",
+      "password": "pepe123",
+      "id": 2
+    },
+    {
+      "name": "pepe",
+      "email": "pepe@gmail.com",
+      "password": "pepe123",
+      "id": 3
+    },
+    {
+      "name": "pepe",
+      "email": "pepe@gmail.com",
+      "password": "pepe123",
+      "id": 4
+    },
+    {
+      "name": "pepe",
+      "email": "pepe@gmail.com",
+      "password": "pepe123",
+      "id": 5
+    },
+    {
+      "name": "pepe",
+      "email": "pepe@gmail.com",
+      "password": "pepe123",
+      "id": 6
+    },
+    {
+      "email": "juan@gmail.com",
+      "password": "pepe123",
+      "id": 7
+    },
+    {
+      "name": "bruno",
+      "email": "brunito@gmail.com",
+      "password": "brunitoooo123",
+      "id": 8
+    },
+    {
+      "email": "brunito.devvv@gmail.com",
+      "password": "devvbrunitoooo123",
+      "id": 9
+    },
+    {
+      "email": "julian@gmail.com",
+      "password": "julian123",
+      "id": 10
+    },
+    {
+      "id": "1734920327646",
+      "name": "richar",
+      "email": "richar@gmail.com",
+      "password": "123412213",
+      "verificationToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhckBnbWFpbC5jb20iLCJpYXQiOjE3MzQ5MjAzMjcsImV4cCI6MTczNTAwNjcyN30.WyyqutXEQnUo1EAdrZKJm8QysoEH_prX2ZndxKzWKCE",
+      "modifiedAt": null
+    },
+    {
+      "id": "1734920345652",
+      "name": "richardd",
+      "email": "richadddr@gmail.com",
+      "password": "12341dasdsa2213",
+      "verificationToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhZGRkckBnbWFpbC5jb20iLCJpYXQiOjE3MzQ5MjAzNDUsImV4cCI6MTczNTAwNjc0NX0.HTotU_BhBElnirEIpSri0oHlUut2zNVZSmS3Q5yzVTI",
+      "modifiedAt": null
+    },
+    {
+      "id": "1734920401647",
+      "name": "cristofer",
+      "email": "rdasdsa@gmail.com",
+      "password": "1234dasdsasa2213",
+      "verificationToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJkYXNkc2FAZ21haWwuY29tIiwiaWF0IjoxNzM0OTIwNDAxLCJleHAiOjE3MzUwMDY4MDF9.9HSFXLyy5JPkX5REDdGg8XGwGFIh9Ka_Y5VvquPm1rM",
+      "modifiedAt": null
+    }
+  ]
+}
