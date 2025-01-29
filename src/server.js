@@ -16,7 +16,7 @@ const PORT = ENVIROMENT.PORT
 //Cross-Origin Resource Sharing (CORS)
 app.use(
     cors({
-        origin: 'http://localhost:5173'
+        origin: ENVIROMENT.URL_FRONTEND
     })
 )
 app.use(express.json())
