@@ -1,4 +1,4 @@
-import Workspace from "../models/workspace.model.js"
+import Workspace from "../models/Workspace.model.js"
 import workspacesRepository from "../repository/workspaces.repository.js"
 
 

@@ -1,5 +1,5 @@
 import User from "../models/User.model.js";
-import Workspace from "../models/workspace.model.js";
+import Workspace from "../models/Workspace.model.js";
 import { ServerError } from "../utils/errors.utils.js";
 import UserRepository from "../repository/user.repository.js";
 import WorkspaceRepository from "../repository/workspaces.repository.js";

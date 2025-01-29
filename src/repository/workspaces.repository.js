@@ -1,5 +1,5 @@
 import pool from "../config/mysql.config.js";
-import Workspace from "../models/workspace.model.js";
+import Workspace from "../models/Workspace.model.js";
 import { ServerError } from "../utils/errors.utils.js";
 
 class WorkspaceRepository {
