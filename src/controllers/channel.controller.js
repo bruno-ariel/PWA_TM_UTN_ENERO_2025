@@ -1,6 +1,5 @@
 import Channel from "../models/Channel.model.js"
 import Message from "../models/Message.model.js"
-import Workspace from "../models/workspace.model.js"
 import ChannelRepository from "../repository/channel.repository.js"
 import MessageRepository from "../repository/message.repository.js"
 
