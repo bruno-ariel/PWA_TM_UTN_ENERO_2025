@@ -9,7 +9,7 @@ import statusRoute from "./routes/status.route.js"
 import authRoute from "./routes/auth.route.js"
 import workspaceRouter from "./routes/workspace.route.js"
 import channelRouter from "./routes/channel.route.js"
-
+console.log("hola mundo")
 const app = express()
 const PORT = ENVIROMENT.PORT
 
