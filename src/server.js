@@ -5,7 +5,10 @@ import connectToMongoDB from "./config/mongoDB.config.js"
 import User from "./models/User.model.js"
 import { sendMail } from "./utils/mail.util.js"
 import cors from "cors"
-
+import statusRoute from "./routes/status.route.js"
+import authRoute from "./routes/auth.route.js"
+import workspaceRouter from "./routes/workspace.route.js"
+import channelRouter from "./routes/channel.route.js"
 
 const app = express()
 const PORT = ENVIROMENT.PORT
@@ -16,7 +19,6 @@ app.use(
         origin: 'http://localhost:5173'
     })
 )
-
 app.use(express.json())
 
 //status router
@@ -32,12 +34,6 @@ app.use(express.json())
 //Route: /api/messages
 
 //GET /messges = devolver lista de mensajes
-
-import statusRoute from "./routes/status.route.js"
-import authRoute from "./routes/auth.route.js"
-import workspaceRouter from "./routes/workspace.route.js"
-import channelRouter from "./routes/channel.route.js"
-
 
 //delegamos el flujo de consultas a /api/status al enrutador de status
 
