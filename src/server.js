@@ -16,9 +16,7 @@ const PORT = ENVIROMENT.PORT
 //Cross-Origin Resource Sharing (CORS)
 app.use(
     cors({
-        origin: ENVIROMENT.URL_FRONTEND,
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true
+        origin: ENVIROMENT.URL_FRONTEND
     })
 )
 app.use(express.json())
