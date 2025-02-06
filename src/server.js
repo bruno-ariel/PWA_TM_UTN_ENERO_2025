@@ -13,29 +13,12 @@ import channelRouter from "./routes/channel.route.js"
 const app = express()
 const PORT = ENVIROMENT.PORT
 
-//Cross-Origin Resource Sharing (CORS)
 app.use(
     cors({
         origin: ENVIROMENT.URL_FRONTEND
     })
 )
 app.use(express.json())
-
-//status router
-// /api/status
-//GET /ping => devolver status 200
-
-//auth routes (autentificacion)
-//Router: /api/auth
-//POST /registro => registrarnos
-//post /login => loguearnos
-
-//menssages router
-//Route: /api/messages
-
-//GET /messges = devolver lista de mensajes
-
-//delegamos el flujo de consultas a /api/status al enrutador de status
 
 app.use("/api/status", statusRoute)
 
@@ -48,11 +31,3 @@ app.use("/api/channel", channelRouter)
 app.listen(PORT , () => {
     console.log(`>> el servidor se esta ejecutando en http://localhost:${PORT}`)
 })
-
-//Operaciones de autentificacion
-
-/* sendMail({
-    to: "brunoariel.dev@gmail.com",
-    subject: "prueba",
-    html: "<h1>hola</h1>"
-}) */

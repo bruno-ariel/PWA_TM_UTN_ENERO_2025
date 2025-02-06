@@ -9,8 +9,3 @@ mongoose.connect("mongodb://localhost:27017/TM_PWA_LUN_MIER_DIC")
 })
 
 export default mongoose
-
-/* 
-async / await
-.then : onResolved / .catch : onReject
-*/

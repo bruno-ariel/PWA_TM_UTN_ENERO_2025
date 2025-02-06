@@ -1,11 +1,3 @@
-/* 
-channel (hace ref a?)
-sender (hace ref a?)
-content
-createdAt
-modifiedAt
-*/
-
 import mongoose from "mongoose";
 
 const messageSchema = new mongoose.Schema ({
