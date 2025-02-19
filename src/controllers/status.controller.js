@@ -1,1 +1,0 @@
-//funciones con la capacidad de responder

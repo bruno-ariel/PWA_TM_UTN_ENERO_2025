@@ -16,4 +16,3 @@ export const sendMail = async ({ to, subject, html }) => {
     }
 };
 
-// Operaciones de autentificacion (envidos de email)

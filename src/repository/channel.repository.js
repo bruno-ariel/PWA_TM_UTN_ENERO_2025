@@ -4,8 +4,14 @@ import Channel from "../models/Channel.model.js";
 
 class ChannelRepository {
     async createChannel(user_id, { name, workspace_id }) {
-        const query = ` INSERT INTO channels (name, workspace, createdBy) VALUES (?, ?, ?)`
-        const [result] = await pool.execute(query, [name, workspace_id, user_id])
+        try {
+            const query = `INSERT INTO channels (name, workspace, createdBy) VALUES (?, ?, ?)`;
+            const [result] = await pool.execute(query, [name, workspace_id, user_id]);
+            console.log("Resultado de inserción:", result);
+        } catch (error) {
+            console.error("Error al insertar:", error.message);
+            console.error("Detalles del error:", error);
+        }
         return {_id: result.insertId, name, workspace: workspace_id, createdBy: user_id}
     }
     async getAllChannelByWorkspaceId(workspace_id) {

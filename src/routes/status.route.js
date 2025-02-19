@@ -1,5 +1,3 @@
-//la configuracion del enrutador de status
-
 import express from "express"
 import ENVIROMENT from "../config/enviroment.js"
 import { authMiddleware } from "../middlewares/auth.middleware.js"
