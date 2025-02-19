@@ -7,12 +7,11 @@ import { sendMail } from "../utils/mail.util.js";
 import bcrypt from "bcrypt"
 import UserRepository from "../repository/user.repository.js";
 
-//Buscar por email
 const findUserByEmail = async (email) => {
     const userFound = await User.findOne({ email: email })
     return userFound
 }
-// crear usuario
+
 const createUser = async ({ username, email, password, verificationToken }) => {
     const nuevo_usuario = new User({
         username,
@@ -24,13 +23,11 @@ const createUser = async ({ username, email, password, verificationToken }) => {
     return nuevo_usuario.save()
 }
 
-// REGISTRO
 export const registerController = async (req, res) => {
     try {
         console.log(req.body)
         const { username, email, password } = req.body;
-
-        // Validación de entrada
+        
         if (!username || !email || !password) {
             return res.json({
                 ok: false,
@@ -38,8 +35,7 @@ export const registerController = async (req, res) => {
                 message: "Bad request",
             })
         }
-
-        // Verificar si el usuario ya existe
+        
         const user_found = await UserRepository.findUserByEmail(email)
         if (user_found) {
             return res.json({
@@ -48,11 +44,9 @@ export const registerController = async (req, res) => {
                 message: "User already exists",
             })
         }
-
-        // Generar el token de verificación
+        
         const verificationToken = jwt.sign({ email }, ENVIROMENT.SECRET_KEY_JWT, { expiresIn: "1d" })
-
-        // Enviar correo de verificación
+        
         await sendMail({
             to: email,
             subject: "Valida tu email",
@@ -64,20 +58,17 @@ export const registerController = async (req, res) => {
                 </a>
             `
         })
-
-        // Hash de la contraseña
+        
         const password_hash = await bcrypt.hash(password, 10)
-
-        // Crear el usuario con el estado de verificación en 'false'
+        
         const new_user = await UserRepository.createUser({
             username,
             email,
             password: password_hash,
             verificationToken,
-            verified: false,  // Inicializa el estado de verificación en 'false'
+            verified: false, 
         })
-
-        // Respuesta de éxito
+        
         res.json({
             ok: true,
             status: 201,
@@ -95,34 +86,27 @@ export const registerController = async (req, res) => {
 }
 
 
-// VERIFICACION DE EMAIL
 export const verifyEmailController = async (req, res) => {
     try {
         const { verification_token } = req.query
-
-        // Validación de token
+        
         if (!verification_token) {
             return res.redirect(`${ENVIROMENT.URL_FRONTEND}/error?error=REQUEST_EMAIL_VERIFY_TOKEN`)
         }
-
-        // Verificar el token JWT
+        
         const payload = jwt.verify(verification_token, ENVIROMENT.SECRET_KEY_JWT)
-
-        // Buscar el usuario en la base de datos
+        
         const user_to_verify = await UserRepository.findUserByEmail(payload.email)
         if (!user_to_verify) {
             return res.redirect(`${ENVIROMENT.URL_FRONTEND}/error?error=REQUEST_EMAIL_VERIFY_TOKEN`)
         }
-
-        // Verificar si el token coincide con el token almacenado
+        
         if (user_to_verify.verificationToken !== verification_token) {
             return res.redirect(`${ENVIROMENT.URL_FRONTEND}/error?error=RESEND_VERIFY_TOKEN`)
         }
-
-        // Verificar al usuario (cambiar el campo 'verified' a true)
+        
         await UserRepository.verifyUser(user_to_verify._id)
-
-        // Redirigir al usuario a la página de login con el parámetro 'verified=true'
+        
         return res.redirect(`${ENVIROMENT.URL_FRONTEND}/login?verified=true`)
     } catch (error) {
         console.log(error);
@@ -133,7 +117,7 @@ export const verifyEmailController = async (req, res) => {
         })
     }
 }
-// LOGUEO 
+
 export const loginController = async (req, res) => {
     try {
         console.log(req.body) 
@@ -191,7 +175,7 @@ export const loginController = async (req, res) => {
             name: user_found.name,
             email: user_found.email,
         }
-        // SIGN UP O INSCRIBIRSE  
+        
         const access_token = jwt.sign (user_info, ENVIROMENT.SECRET_KEY_JWT)
 
         return res.json({
@@ -217,7 +201,7 @@ export const loginController = async (req, res) => {
     }
 }
 
-// RECUPERAR CONTRASEÑA
+
 export const forgotPasswordController = async (req, res) => {
     try{
         console.log(req.body)
@@ -259,7 +243,7 @@ export const forgotPasswordController = async (req, res) => {
     }
 }
 
-// RECETEAR CONTRASEÑA
+
 export const resetPasswordController = async (req, res) =>{
     try{
         const {reset_token} = req.query
