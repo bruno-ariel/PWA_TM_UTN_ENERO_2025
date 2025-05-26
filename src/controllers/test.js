@@ -1,5 +1,4 @@
 import channelRepository from "../repository/channel.repository.js";
-//test
 async function test() {
     try {
         const newChannel = await channelRepository.createChannel(1, { name : "test", workspace_id: 1 });
