@@ -175,8 +175,7 @@ export const loginController = async (req, res) => {
             name: user_found.name,
             email: user_found.email,
         }
-        if (!ENVIROMENT.SECRET_KEY_JWT) {
-        throw new Error("SECRET_KEY_JWT no está definido")}
+        
         const access_token = jwt.sign (user_info, ENVIROMENT.SECRET_KEY_JWT)
 
         return res.json({
